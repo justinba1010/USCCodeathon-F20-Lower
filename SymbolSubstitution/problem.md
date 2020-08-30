@@ -1,4 +1,4 @@
-The symbols on the math homework have gotten substituted! Figure out what math symbol (+ - * /) each of the letters could stand for
+The symbols on the math homework have gotten substituted! Figure out what math symbol (+ - * /) each of the letters could stand for!
 
 
 Print out the symbol(s) that satisfy an equation. If more than one symbol could satisfy the equation, print them out in the following order (highest priority listed first): + - * / For example, in the equation 2 A 2 = 4, the + or * could satisfy this equation, so because the plus sign comes first in the list of priorities, the output would be "+ \*" (no quotes)

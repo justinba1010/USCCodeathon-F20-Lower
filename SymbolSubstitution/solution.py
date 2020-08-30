@@ -18,7 +18,7 @@ for i in range(caseCount):
         if i == "/" and b == 0:
             continue
         eq = eval(str(a)+i+str(b))
-        eq = int(eq)
+        # eq = int(eq)
         # print(str(a)+i+str(b), "=", eq)
 
         if eq == c:
