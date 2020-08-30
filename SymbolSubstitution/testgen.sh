@@ -1,7 +1,7 @@
 # might only work on windows
 
 #on windows, open this using run, then type Bash
-# cd Documents/Eclipse/Workspace/Codeathon2020LowerSpring/src/USCCodeathon-S2020-Lower-master/OddOrigami
+# cd Documents/College\ Notes/ACM/CodeathonFall2020/SymbolSubstitution/
 
 #or using cmd use bash testgen.sh
 

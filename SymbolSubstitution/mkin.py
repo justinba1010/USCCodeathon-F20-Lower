@@ -1,6 +1,6 @@
 #!/usr/local/bin/python3
 from random import *
-numCommands = randint(10, 10)
+numCommands = randint(2, 30)
 # numCommands = int(input())
 print(numCommands)
 maxVal = 20
