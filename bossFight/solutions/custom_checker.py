@@ -21,10 +21,10 @@ score       [float] Assign test-case score. Normalized between 0 to 1
 message     [str] Assign test-case message. This message is visible to the problem solver
 '''
 
-def invalid(mes):
+def invalid(mes, time =0):
     r_obj.result = False
     r_obj.score = 0.0
-    r_obj.message = mes
+    r_obj.message = mes + str(time)
 
 
 def run_custom_checker(t_obj, r_obj):
@@ -46,7 +46,7 @@ def run_custom_checker(t_obj, r_obj):
     poisonCooldown = 0
     while bossHealth > 0 and playerHealth > 0:
         if timestep > startHealth * 8:
-            invalid("Too many moves to complete")
+            invalid("Took too many moves to fight")
             break
         restCooldown = max(restCooldown - 1, 0)
         if restCooldown and moves[pos] != 0:
@@ -70,9 +70,7 @@ def run_custom_checker(t_obj, r_obj):
                 invalid("Invalid Move4")
                 break
         if bossHealth <= 0:
-            r_obj.result = True;
-            r_obj.score = 1.0;
-            r_obj.message = "The monster was defeated!";
+            timestep += 1
             break
         if timestep != 0:
             if timestep % 20 == 0:
@@ -82,9 +80,17 @@ def run_custom_checker(t_obj, r_obj):
             if timestep % 14 == 0: # was 17, but that was too easy
                 poisonCooldown = 3
         timestep += 1
+        pos = timestep
 
     if playerHealth <= 0:
         invalid("You ran out of health!")
+    elif timestep != len(moves):
+        invalid("Length of moves was too long", timestep)
+    else:
+        r_obj.result = True
+        r_obj.score = 1.0
+        r_obj.message = "The monster was defeated!"
+        
     # if output in a:
     #     r_obj.result = True
     #     r_obj.score = 1.0
