@@ -34,20 +34,23 @@ mkdir -p output
 #   echo $i
 # done
 
-for i in {3..40}
+for i in {3..30}
 do
   # echo "$(cd "$(dirname "$0")" && pwd -P)"
-  python3 ./mkin.py > input/input$i.txt
-  python3 ./solution.py < input/input$i.txt > output/output$i.txt
+  echo $i | python3 ./mkin.py > input/input$i.txt
+  python3 ./solutions/solution.py < input/input$i.txt > output/output$i.txt
 
   echo $i
 done
 
-# for i in {0..1}
+# for i in {1..2}
 # do
-#   python3 ./solutions/solution.py < input/input$i.txt > output/output$i.txt
+#   # echo "$(cd "$(dirname "$0")" && pwd -P)"
+#   echo $i | python3 ./mkin.py > samples/input/input$i.txt
+#   python3 ./solutions/solution.py < samples/input/input$i.txt > samples/output/output$i.txt
+
+#   echo $i
 # done
-# popd
 
 rm -rf cases.zip
 zip -r cases input output
