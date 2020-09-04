@@ -21,7 +21,7 @@ score       [float] Assign test-case score. Normalized between 0 to 1
 message     [str] Assign test-case message. This message is visible to the problem solver
 '''
 
-def invalid(mes, time =0):
+def invalid(mes, time =""):
     r_obj.result = False
     r_obj.score = 0.0
     r_obj.message = mes + str(time)
@@ -35,9 +35,9 @@ def run_custom_checker(t_obj, r_obj):
     startHealth = int(infile.read())
     moves = outputfile.read().rstrip().split("\n")
     moves = list(map(int, moves))
-    r_obj.result = False
-    r_obj.score = 0.0
-    r_obj.message = "Failure"
+    r_obj.result = True
+    r_obj.score = 1.0
+    r_obj.message = "You won!"
     pos = 0
     playerHealth = 100
     bossHealth = startHealth
@@ -50,14 +50,23 @@ def run_custom_checker(t_obj, r_obj):
             break
         restCooldown = max(restCooldown - 1, 0)
         if restCooldown and moves[pos] != 0:
-            invalid("Invalid Move1")
+            invalid("Invalid Move, can't move while resting")
             break
+        if pos >= len(moves):
+            invalid("Not enough moves output")
+            break
+        if poisonCooldown:
+            playerHealth -= 6
+            # print("poison damage")
+            poisonCooldown -= 1
+            if playerHealth <= 0:
+                 break
         if restCooldown == 0:
             if moves[pos] == 1:
                 if timestep % 2 == 0:
                     bossHealth -= 9
                 else:
-                    invalid("Invalid Move2", timestep)
+                    invalid("Invalid Move, can't move on timestep that is not divisible by 2", timestep)
                     break
             elif moves[pos] == 2:
                 if timestep % 3 == 0:
@@ -81,15 +90,21 @@ def run_custom_checker(t_obj, r_obj):
                 poisonCooldown = 3
         timestep += 1
         pos = timestep
-
-    if playerHealth <= 0:
-        invalid("You ran out of health!")
-    elif timestep != len(moves):
-        invalid("Length of moves was too long", timestep)
-    else:
-        r_obj.result = True
-        r_obj.score = 1.0
-        r_obj.message = "The monster was defeated!"
+    
+    if r_obj.result == True:
+        if playerHealth <= 0:
+            invalid("You ran out of health!")
+        elif timestep != len(moves):
+            invalid("Length of moves was too long", timestep)
+        else:
+            r_obj.result = True
+            r_obj.score = 1.0
+            r_obj.message = "The monster was defeated!"
+    # else:
+    #     r_obj.result = False
+    #     r_obj.score = 0.0
+    #     r_obj.message = "The monster was defeated!"
+        
         
     # if output in a:
     #     r_obj.result = True
