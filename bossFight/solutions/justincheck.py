@@ -7,13 +7,6 @@ minhealth = 100
 for (i, move) in enumerate(x):
     cooldown = max(0, cooldown - 1)
     print("timestep: %s, move: %s, player health: %s, monster health: %s" % (i, move, player, monster))
-    if i % 20 == 0 and i > 10:
-        player = (player+1)//2
-    if i % 14 in [0,1,2] and i > 10:
-        player -= 6
-    if i % 5 == 0 and i > 1:
-        player -= 11
-    minhealth = min(player, minhealth)
     if move == "0":
        pass 
     elif move == "1" and i % 2 == 0 and cooldown <= 0:
@@ -30,6 +23,13 @@ for (i, move) in enumerate(x):
     if player <= 0:
         print("killed")
         break
+    if i % 20 == 0 and i > 10:
+        player = (player+1)//2
+    if i % 14 in [0,1,2] and i > 10:
+        player -= 6
+    if i % 5 == 0 and i > 1:
+        player -= 11
+    minhealth = min(player, minhealth)
 print("The lowest the player health gets is: %s" % minhealth)
 
 

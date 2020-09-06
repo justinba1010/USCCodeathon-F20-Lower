@@ -1,5 +1,18 @@
 import sys
 sys.setrecursionlimit(50000)
+
+def monster_move(index, playerhealth):
+    if index > 0:
+        if index % 20 == 0:
+            playerhealth = (playerhealth+1)//2
+        if index > 10 and index % 14 in [0,1,2]:
+            playerhealth -= 6
+        if index % 5 == 0:
+            playerhealth -= 11
+    return playerhealth
+
+
+
 class Board:
     def __init__(self, playerhealth, monsterhealth, move, index, cooldown, previousmoves):
         self.playerhealth = playerhealth
@@ -14,18 +27,12 @@ class Board:
             return self.previousmoves
         children = []
         newindex = self.index + 1
-        playerhealth = self.playerhealth
+        playerhealth = monster_move(self.index, self.playerhealth)
         monsterhealth = self.monsterhealth
         cooldown = max(self.cooldown - 1, 0)
         previousmoves = self.previousmoves[:]
         previousmoves.append(self.move)
         # Generate monster move deterministic
-        if newindex % 20 == 0:
-            playerhealth = (playerhealth+1)//2
-        if newindex > 10 and newindex % 14 in [0,1,2]:
-            playerhealth -= 6
-        if newindex % 5 == 0:
-            playerhealth -= 11
         if playerhealth > 0:
             # Always make a move if possible
             if newindex % 2 == 0 and cooldown == 0:
