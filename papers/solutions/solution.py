@@ -1,7 +1,7 @@
 n = int(input())
 l = [int(x) for x in input().split()]
 average = sum(l)//n
-sorted(l)
+l.sort()
 median = int(l[n//2] + l[(n-1)//2])//2
 
 def letter(x):
