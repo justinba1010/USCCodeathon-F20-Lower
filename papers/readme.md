@@ -8,6 +8,7 @@ Dr. Knuth needs to find the average and median of all of his papers.
 
 Dr. Knuth needs to find the average and median of his class as a letter grade. Below are the grades to table.
 
+
 | lower | higher | letter grade |
 | --- | --- | --- | --- |
 | 90 | 100 | A |
