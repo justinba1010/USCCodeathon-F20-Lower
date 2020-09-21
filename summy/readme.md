@@ -17,7 +17,7 @@ i_1 i_2 i_3 ... i_n
 
 ## Constraints
 
-$1 < k < n < 100000$
+$1 < k < n < 500000$
 $-100 <= i <= 100$
 
 ## Output Format
