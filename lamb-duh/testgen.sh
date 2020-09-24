@@ -34,7 +34,7 @@ mkdir -p output
 #   echo $i
 # done
 
-for i in {1..30}
+for i in {2..30}
 do
   # echo "$(cd "$(dirname "$0")" && pwd -P)"
   echo $i | python3 ./mkin.py > input/input$i.txt

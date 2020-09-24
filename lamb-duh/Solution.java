@@ -9,30 +9,18 @@ public class Solution
         int numCases = input.nextInt();
         for (int t = 0; t < numCases; ++t)
         {
+            int answer = 0;
             int n = input.nextInt();
             int k = input.nextInt();
-            int[] sheep = new int[n];
-//          int[] operations = new int[k];
             for (int i = 0; i < n; i++)
             {
-                sheep[i] = input.nextInt();
+                answer += input.nextInt();
             }
             for (int i = 0; i < k; i++)
             {
-                int curOperation = input.nextInt();
-                for (int j = 0; j < sheep.length; j++)
-                {
-                    sheep[j] += curOperation;
-                }
-//              sheep[i] = input.nextInt();
+                answer += input.nextInt() * n;
             }
-            int total = 0;
-
-            for (int i = 0; i < sheep.length; i++)
-            {
-                total += sheep[i];
-            }
-            System.out.println(total);
+            System.out.println(answer);
         }
         input.close();
 
