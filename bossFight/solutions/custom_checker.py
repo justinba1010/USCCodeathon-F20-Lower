@@ -30,9 +30,10 @@ def invalid(mes, time =""):
 def run_custom_checker(t_obj, r_obj):
     # Don't print anything to STDOUT in this function
     # Enter your custom checker scoring logic here
-    outputfile = open(t_obj.testcase_output_path, "r")
-    infile = open(t_obj.testcase_input_path, "r")
-    startHealth = int(infile.read())
+    outputfile = open("solutionto10k.txt", "r")
+    # infile = open(t_obj.testcase_input_path, "r")
+    # startHealth = int(infile.read())
+    startHealth = 10000
     moves = outputfile.read().rstrip().split("\n")
     moves = list(map(int, moves))
     r_obj.result = True
@@ -50,7 +51,7 @@ def run_custom_checker(t_obj, r_obj):
             break
         restCooldown = max(restCooldown - 1, 0)
         if restCooldown and moves[pos] != 0:
-            invalid("Invalid Move, can't move while resting")
+            invalid("Invalid Move, can't move while resting on step: ", timestep)
             break
         if pos >= len(moves):
             invalid("Not enough moves output")
@@ -66,17 +67,17 @@ def run_custom_checker(t_obj, r_obj):
                 if timestep % 2 == 0:
                     bossHealth -= 9
                 else:
-                    invalid("Invalid Move, can't move on timestep that is not divisible by 2", timestep)
+                    invalid("Invalid Move, can't move on timestep that is not divisible by 2 on timestep", timestep)
                     break
             elif moves[pos] == 2:
                 if timestep % 3 == 0:
-                    restCooldown = 3
+                    restCooldown = 2
                     playerHealth = min(100, playerHealth + 15)
                 else:
-                    invalid("Invalid Move3")
+                    invalid("Invalid Move on timestep: ", timestep)
                     break
             elif moves[pos] != 0:
-                invalid("Invalid Move4")
+                invalid("Invalid Move on timestep: ", timestep)
                 break
         if bossHealth <= 0:
             timestep += 1
@@ -93,37 +94,25 @@ def run_custom_checker(t_obj, r_obj):
     
     if r_obj.result == True:
         if playerHealth <= 0:
-            invalid("You ran out of health!")
+            invalid("You ran out of health! on timestep: ", str(timestep) + " " + str(bossHealth)+" " + str(playerHealth))
         elif timestep != len(moves):
             invalid("Length of moves was too long", timestep)
         else:
             r_obj.result = True
             r_obj.score = 1.0
             r_obj.message = "The monster was defeated!"
-    # else:
-    #     r_obj.result = False
-    #     r_obj.score = 0.0
-    #     r_obj.message = "The monster was defeated!"
-        
-        
-    # if output in a:
-    #     r_obj.result = True
-    #     r_obj.score = 1.0
-    #     r_obj.message = "Success"
-    
-        
-#     r_obj.result = False
-#     r_obj.score = 0.0
-#     r_obj.message = "Failure"
-    
-#     if (output > expected*0.9 and output < expected*1.1):
-#         r_obj.result = True
-#         r_obj.score = 1.0
-#         r_obj.message = "Success"
 
-    # r_obj.result = True;
-    # r_obj.score = 1.0;
-    # r_obj.message = "Success";
+    # print(r_obj.result, r_obj.score, r_obj.message)
+
 
 # End of BODY
-        
+class ResultStruct:
+    def __init__(self):
+        self.result = False
+        self.score = 0.0
+        self.message = ""
+r_obj = ResultStruct()
+run_custom_checker(None, r_obj)
+print(r_obj.result)
+print(r_obj.score)
+print(r_obj.message)
