@@ -5,8 +5,8 @@
 30
 '''
 width = int(input())
-# width = 6
 height = int(input())
+# width = 6
 # height = 10
 board = [[0 for i in range(width)] for j in range(height)]
 # cornerStart = 5
@@ -22,5 +22,5 @@ for i in range(1, height):
             value += board[i-1][j-1]
         board[i][j] = value % 10 
 
-[print(*i,sep="") for i in board]
-# print(*board[height-1])
+# [print(*i,sep="") for i in board]
+print(*board[height-1])
