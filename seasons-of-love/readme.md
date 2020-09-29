@@ -1,6 +1,6 @@
 # Seasons of Love
 
-Roger and Mark are trying to get together for coffee.
+Angel and Tom are trying to get together for coffee.
 Unfortunately, they're not very good at communicating.
 Help them figure out when they should meet up!
 
@@ -20,7 +20,7 @@ where $n$ is an integer and $d$ is one of the following strings:
 
 ## Output format
 
-Output the number of seconds $s$ until Mark and Roger meet up.
+Output the number of seconds $s$ until Angel and Tom meet up.
 
 ## Constraints
 
