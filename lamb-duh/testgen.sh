@@ -43,6 +43,15 @@ do
   echo $i
 done
 
+# for i in {121..140}
+# do
+#   # echo "$(cd "$(dirname "$0")" && pwd -P)"
+#   expr $i | python3 ./mkin.py > input/input$(($i%100)).txt
+#   python3 ./solution.py < input/input$(($i%100)).txt > output/output$(($i%100)).txt
+
+#   echo $i
+# done
+
 # for i in {0..1}
 # do
 #   python3 ./solution.py < samples/input/input$i.txt > samples/output/output$i.txt

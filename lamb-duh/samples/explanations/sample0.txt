@@ -1,0 +1,13 @@
+The first line shows that there is 1 test case. The next line shows there 3 lines of sheep and 7 instructions after. The lines of sheep have 2 sheep, 4 sheep and 7 sheep, as shown by the third line. The last line shows how many sheep should be added to each line.
+
+After 8 is added to each, the lines are 10 12 15.
+
+After 2 is added to each, the lines are 12 14 17.
+
+After 1 is added to each, the lines are 13 15 18.
+
+After 5 is added to each, the lines are 18 20 23.
+
+After 6 is added to each, the lines are 24 26 29.
+
+The sum of 24 26 and 29 is 79, so 79 is printed
