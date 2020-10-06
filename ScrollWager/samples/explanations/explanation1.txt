@@ -1,0 +1,8 @@
+The first line looks like
+```
+012345678901
+```
+(The last two numbers are 10 mod 10 = 0 and 11 mod 10 = 1 in the first line)
+
+The entire scroll can be seen here:
+[https://pastebin.com/VdSgPA2f](https://pastebin.com/VdSgPA2f)

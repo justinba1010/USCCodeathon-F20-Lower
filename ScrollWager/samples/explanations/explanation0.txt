@@ -1,0 +1,23 @@
+Here is the scroll with all 4 lines
+```
+012345
+014965
+016945
+018365
+```
+The given width is 6, so the first row is the numbers 0 through 5.
+The each number in the next line is the sum of 3 numbers to the left and above it.
+(The far left column only adds the number above it since there are no numbers to the left of it)
+Moving to the right on the second line:
+
+0 + 1 + 0 = 1
+
+1 + 2 + 1 = 4
+
+2 + 3 + 4 = 9
+
+3 + 4 + 9 = 16 (mod 10) = 6
+
+4 + 5 + 6 = 15 (mod 10) = 5
+
+This is continued until line 4, the line Wyatt wanted to know about. 
