@@ -1,7 +1,7 @@
 # might only work on windows
 
 #on windows, open this using run, then type Bash
-# cd Documents/College\ Notes/ACM/CodeathonFall2020/SymbolSubstitution/
+# cd Documents/College\ Notes/ACM/temp2020Fall/USCCodeathon-F20-Lower/ScrollWager/
 
 #or using cmd use bash testgen.sh
 
@@ -38,7 +38,16 @@ done
 #   echo $i
 # done
 
-for i in {2..30}
+for i in {2..15}
+do
+  # echo "$(cd "$(dirname "$0")" && pwd -P)"
+  echo $i | python3 mkin.py > input/input$i.txt
+  python3 ./solutions/solution.py < input/input$i.txt > output/output$i.txt
+
+  echo $i
+done
+
+for i in {16..50}
 do
   # echo "$(cd "$(dirname "$0")" && pwd -P)"
   echo $i | python3 mkin.py > input/input$i.txt

@@ -1,12 +1,18 @@
 import java.io.*;
 import java.util.*;
 
-public class Solution {
+// public class Solution {
+public class naive_java {
 
     public static void main(String[] args) {
         /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+
         Scanner input = new Scanner(System.in);
         int xDim = input.nextInt();
+
+        //the simple change needed to make this naive solution work is
+        // adding % 125 to the end of the below line ;)
+
         int yDim = input.nextInt();
         int[][] board = new int[yDim][xDim];
         for(int i = 0; i < xDim; i++)
@@ -23,8 +29,6 @@ public class Solution {
         for (int w = 0; w < xDim; w++)
         {
             System.out.print(board[yDim-1][w] + " ");
-
-            // line2[w] =  line1[w] + line1[w - 1] + line2[w - 1];
         }
     }
 }
